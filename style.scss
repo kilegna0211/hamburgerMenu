@@ -1,9 +1,13 @@
-$bgColor: #565656;
-$gradientColor: linear-gradient(45deg, rgba(255, 102, 0, 0.8), rgba(198, 63, 162, 0.8));
-$colorBar: #fefefe;
+$bg-color: #565656;
+$gradient-color: linear-gradient(45deg, rgba(255, 102, 0, 0.8), rgba(198, 63, 162, 0.8));
+$bar-width: 100px;
+$bar-height: 10px;
+$bar-spacing: 25px;
+$color-bar: #fefefe;
+$transition: cubic-bezier(.57,.11,.53,.95);
 
 body {
-  background: $bgColor;
+	background: $bg-color;
 }
 
 .container {
@@ -14,29 +18,61 @@ body {
   justify-content: center;
 }
 
-button {
-  position: relative;
+#button1 {
   width: 120px;
   height: 120px;
-  background: $gradientColor;
-  border: none;
   border-radius: 10px;
-  cursor: pointer;
+  background: $gradient-color;
+	cursor: pointer;
 }
 
-span.bar {
-  position: absolute;
-  background: $colorBar;
+.bar,
+.bar:after,
+.bar:before {
+  width: $bar-width;
+	height: $bar-height;
+}
+
+.bar {
+	position: absolute;
+	transform: translateX(10px) translateY(55px);
+	background: $color-bar;
   border-radius: 4px;
-  top: 55px;
-  left: 20px;
-  width: 80px;
-  height: 10px;
-  transition: all 0.3s;
-  &:nth-child(2) {
-    transform: translateY(25px);
+	transition: all 0s 0.3s;
+
+  &.animate {
+    background: rgba(255, 255, 255, 0);
   }
-  &:last-child {
-    transform: translateY(-25px);
-  }
+}
+
+.bar:before {
+	content: "";
+	position: absolute;
+  border-radius: 4px;
+	left: 0;
+	bottom: $bar-spacing;
+	background: $color-bar;
+	transition: bottom 0.3s 0.3s $transition, transform 0.3s $transition;
+}
+
+.bar:after {
+	content: "";
+	position: absolute;
+  border-radius: 4px;
+	left: 0;
+	top: $bar-spacing;
+	background: $color-bar;
+	transition: top 0.3s 0.3s $transition, transform 0.3s $transition;
+}
+
+.bar.animate:after {
+	top: 0;
+	transform: rotate(45deg);
+	transition: top 0.3s $transition, transform 0.3s 0.3s $transition;
+}
+
+.bar.animate:before {
+	bottom: 0;
+	transform: rotate(-45deg);
+	transition: bottom 0.3s $transition, transform 0.3s 0.3s $transition;
 }
