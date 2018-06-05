@@ -1,3 +1,5 @@
+/*create main style button*/
+/*create main style bar*/
 body {
   background: #565656; }
 
@@ -8,54 +10,307 @@ body {
   align-items: center;
   justify-content: center; }
 
+/*button 1*/
 #button1 {
+  position: relative;
   width: 120px;
   height: 120px;
+  margin: 50px;
   border-radius: 10px;
   background: linear-gradient(45deg, rgba(255, 102, 0, 0.8), rgba(198, 63, 162, 0.8));
   cursor: pointer; }
 
-.bar,
-.bar:after,
-.bar:before {
+#button1 .bar {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
   width: 100px;
-  height: 10px; }
-
-.bar {
-  position: absolute;
+  height: 10px;
   transform: translateX(10px) translateY(55px);
-  background: #fefefe;
-  border-radius: 4px;
   transition: all 0s 0.3s; }
-  .bar.animate {
-    background: rgba(255, 255, 255, 0); }
+  #button1 .bar.animate {
+    background: transparent; }
 
-.bar:before {
-  content: "";
+#button1 .bar:before {
   position: absolute;
-  border-radius: 4px;
-  left: 0;
-  bottom: 25px;
   background: #fefefe;
+  border-radius: 4px;
+  width: 100px;
+  height: 10px;
+  content: "";
+  bottom: 25px;
   transition: bottom 0.3s 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95), transform 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
 
-.bar:after {
-  content: "";
+#button1 .bar.animate:before {
+  bottom: 0;
+  transform: rotate(-45deg);
+  transition: bottom 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95), transform 0.3s 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button1 .bar:after {
   position: absolute;
-  border-radius: 4px;
-  left: 0;
-  top: 25px;
   background: #fefefe;
+  border-radius: 4px;
+  width: 100px;
+  height: 10px;
+  content: "";
+  top: 25px;
   transition: top 0.3s 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95), transform 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
 
-.bar.animate:after {
+#button1 .bar.animate:after {
   top: 0;
   transform: rotate(45deg);
   transition: top 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95), transform 0.3s 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
 
-.bar.animate:before {
-  bottom: 0;
+/*button 2*/
+#button2 {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 50px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, rgba(104, 27, 186, 0.8), rgba(252, 17, 248, 0.8));
+  cursor: pointer; }
+
+#button2 .bar {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 100px;
+  height: 10px;
+  transform: translateX(10px) translateY(55px);
+  transition: background 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+  #button2 .bar.animate {
+    background: transparent;
+    transition: background 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button2 .bar:before {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 100px;
+  height: 10px;
+  content: "";
+  bottom: 25px;
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button2 .bar.animate:before {
+  transform: rotate(-45deg) translateX(-4px) translateY(-18px);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button2 .bar:after {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 100px;
+  height: 10px;
+  content: "";
+  top: 25px;
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button2 .bar.animate:after {
+  transform: rotate(45deg) translateX(-4px) translateY(18px);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+/* button 3 */
+#button3 {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 50px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, rgba(114, 249, 162, 0.8), rgba(148, 0, 255, 0.8));
+  cursor: pointer; }
+
+#button3 .bar.one {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 100px;
+  height: 10px;
+  top: 55px;
+  left: 10px;
+  transition: all 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+  #button3 .bar.one.animate {
+    left: 55px;
+    width: 10px; }
+
+#button3 .bar.two:before {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 50px;
+  height: 10px;
+  content: '';
+  top: 30px;
+  left: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button3 .bar.two.animate:before {
+  transform-origin: left;
+  left: 24px;
+  top: 20px;
+  transform: rotate(45deg);
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button3 .bar.two:after {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 50px;
+  height: 10px;
+  content: '';
+  top: 30px;
+  right: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button3 .bar.two.animate:after {
+  transform-origin: right;
+  right: 24px;
+  top: 20px;
   transform: rotate(-45deg);
-  transition: bottom 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95), transform 0.3s 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button3 .bar.three:before {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 50px;
+  height: 10px;
+  content: '';
+  bottom: 30px;
+  left: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button3 .bar.three.animate:before {
+  transform-origin: left;
+  left: 24px;
+  bottom: 18px;
+  transform: rotate(-45deg);
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button3 .bar.three:after {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 50px;
+  height: 10px;
+  content: '';
+  bottom: 30px;
+  right: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button3 .bar.three.animate:after {
+  transform-origin: right;
+  right: 24px;
+  bottom: 18px;
+  transform: rotate(45deg);
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+/* button 4 */
+#button4 {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 50px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, rgba(70, 70, 242, 0.8), rgba(105, 252, 45, 0.6));
+  cursor: pointer; }
+
+#button4 .bar.one {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 100px;
+  height: 10px;
+  top: 55px;
+  left: 10px;
+  transition: all 0.3s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+  #button4 .bar.one.animate {
+    left: 55px;
+    width: 10px; }
+
+#button4 .bar.two:before {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 50px;
+  height: 10px;
+  content: '';
+  top: 30px;
+  left: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button4 .bar.two.animate:before {
+  transform-origin: right;
+  transform: rotate(-45deg) translateX(-19px) translateY(18px);
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button4 .bar.two:after {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 50px;
+  height: 10px;
+  content: '';
+  top: 30px;
+  right: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button4 .bar.two.animate:after {
+  transform-origin: left;
+  transform: rotate(45deg) translateX(19px) translateY(18px);
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button4 .bar.three:before {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 50px;
+  height: 10px;
+  content: '';
+  bottom: 30px;
+  left: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button4 .bar.three.animate:before {
+  transform-origin: right;
+  transform: rotate(45deg) translateX(-18px) translateY(-17px);
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button4 .bar.three:after {
+  position: absolute;
+  background: #fefefe;
+  border-radius: 4px;
+  width: 50px;
+  height: 10px;
+  content: '';
+  bottom: 30px;
+  right: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
+
+#button4 .bar.three.animate:after {
+  transform-origin: left;
+  transform: rotate(-45deg) translateX(18px) translateY(-17px);
+  transition: all 0.5s cubic-bezier(0.57, 0.11, 0.53, 0.95); }
 
 /*# sourceMappingURL=style.css.map */
