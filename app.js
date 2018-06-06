@@ -29,3 +29,11 @@ var hamburger4 = Array.from(document.querySelectorAll('#button4 .bar'));
 button4.addEventListener('click', function() {
   hamburger4.forEach(bar => bar.classList.toggle('animate'));
 });
+
+// button 5
+var button5 = document.querySelector('#button5');
+var hamburger5 = Array.from(document.querySelectorAll('#button5 .bar'));
+
+button5.addEventListener('click', function() {
+  hamburger5.forEach(bar => bar.classList.toggle('animate'));
+});

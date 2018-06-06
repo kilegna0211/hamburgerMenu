@@ -3,17 +3,19 @@ $gradient-color1: linear-gradient(45deg, rgba(255, 102, 0, 0.8), rgba(198, 63, 1
 $gradient-color2: linear-gradient(45deg, rgba(104, 27, 186, 0.8), rgba(252, 17, 248, 0.8));
 $gradient-color3: linear-gradient(45deg, rgba(114, 249, 162, 0.8), rgba(148, 0, 255,0.8));
 $gradient-color4: linear-gradient(45deg, rgba(70, 70, 242,0.8), rgba(105, 252, 45,0.6));
+$gradient-color5: linear-gradient(45deg, rgb(96, 173, 255), #193bfc);
 $bar-width: 100px;
 $bar-height: 10px;
 $bar-spacing: 25px;
 $color-bar: #fefefe;
-$transition: cubic-bezier(.57,.11,.53,.95);
+$timing-fonction: cubic-bezier(.57,.11,.53,.95);
+$transition: all 0.3s $timing-fonction;
 
 /*create main style button*/
 @mixin button($color) {
   position: relative;
-  width: 120px;
-  height: 120px;
+  min-width: 120px;
+  min-height: 120px;
   margin: 50px;
   border-radius: 10px;
   background: $color;
@@ -60,26 +62,26 @@ body {
   @include bar($bar-width);
 	content: "";
 	bottom: $bar-spacing;
-	transition: bottom 0.3s 0.3s $transition, transform 0.3s $transition;
+	transition: bottom 0.3s 0.3s $timing-fonction, transform 0.3s $timing-fonction;
 }
 
 #button1 .bar.animate:before {
 	bottom: 0;
 	transform: rotate(-45deg);
-	transition: bottom 0.3s $transition, transform 0.3s 0.3s $transition;
+	transition: bottom 0.3s $timing-fonction, transform 0.3s 0.3s $timing-fonction;
 }
 
 #button1 .bar:after {
   @include bar($bar-width);
 	content: "";
 	top: $bar-spacing;
-	transition: top 0.3s 0.3s $transition, transform 0.3s $transition;
+	transition: top 0.3s 0.3s $timing-fonction, transform 0.3s $timing-fonction;
 }
 
 #button1 .bar.animate:after {
 	top: 0;
 	transform: rotate(45deg);
-	transition: top 0.3s $transition, transform 0.3s 0.3s $transition;
+	transition: top 0.3s $timing-fonction, transform 0.3s 0.3s $timing-fonction;
 }
 
 /*button 2*/
@@ -90,11 +92,11 @@ body {
 #button2 .bar {
   @include bar($bar-width);
 	transform: translateX(10px) translateY(55px);
-	transition: background 0.3s $transition;
+	transition: $transition;
 
   &.animate {
     background: transparent;
-  	transition: background 0.3s $transition;
+  	transition: $transition;
   }
 }
 
@@ -103,13 +105,13 @@ body {
 	content: "";
 	bottom: $bar-spacing;
   transform-origin: right;
-  transition: transform 0.3s $transition;
+  transition: $transition;
 }
 
 #button2 .bar.animate:before {
   transform: rotate(-45deg) translateX(-4px) translateY(-18px);
   transform-origin: right;
-	transition: transform 0.3s $transition;
+	transition: $transition;
 }
 
 #button2 .bar:after {
@@ -117,13 +119,13 @@ body {
 	content: "";
 	top: $bar-spacing;
   transform-origin: right;
-	transition: transform 0.3s $transition;
+	transition: $transition;
 }
 
 #button2 .bar.animate:after {
   transform: rotate(45deg) translateX(-4px) translateY(18px);
   transform-origin: right;
-  transition: transform 0.3s $transition;
+  transition: $transition;
 }
 
 /* button 3 */
@@ -135,7 +137,7 @@ body {
   @include bar($bar-width);
   top: 55px;
   left: 10px;
-  transition: all 0.3s $transition;
+  transition: $transition;
   &.animate {
     left: 55px;
     width: $bar-width/10;
@@ -149,7 +151,7 @@ body {
   left: 10px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button3 .bar.two.animate:before {
@@ -157,7 +159,7 @@ body {
   left: 24px;
   top: 20px;
   transform: rotate(45deg);
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button3 .bar.two:after {
@@ -167,7 +169,7 @@ body {
   right: 10px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button3 .bar.two.animate:after {
@@ -175,7 +177,7 @@ body {
   right: 24px;
   top: 20px;
   transform: rotate(-45deg);
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button3 .bar.three:before {
@@ -185,7 +187,7 @@ body {
   left: 10px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button3 .bar.three.animate:before {
@@ -193,7 +195,7 @@ body {
   left: 24px;
   bottom: 18px;
   transform: rotate(-45deg);
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button3 .bar.three:after {
@@ -203,7 +205,7 @@ body {
   right: 10px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button3 .bar.three.animate:after {
@@ -211,7 +213,7 @@ body {
   right: 24px;
   bottom: 18px;
   transform: rotate(45deg);
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 /* button 4 */
@@ -223,7 +225,7 @@ body {
   @include bar($bar-width);
   top: 55px;
   left: 10px;
-  transition: all 0.3s $transition;
+  transition: $transition;
   &.animate {
     left: 55px;
     width: $bar-width/10;
@@ -237,13 +239,13 @@ body {
   left: 10px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button4 .bar.two.animate:before {
   transform-origin: right;
   transform: rotate(-45deg) translateX(-19px) translateY(18px);
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button4 .bar.two:after {
@@ -253,13 +255,13 @@ body {
   right: 10px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button4 .bar.two.animate:after {
   transform-origin: left;
   transform: rotate(45deg) translateX(19px) translateY(18px);
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button4 .bar.three:before {
@@ -269,13 +271,13 @@ body {
   left: 10px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button4 .bar.three.animate:before {
   transform-origin: right;
   transform: rotate(45deg) translateX(-18px) translateY(-17px);
-  transition: all 0.5s $transition;
+  transition: $transition;
 
 }
 
@@ -286,11 +288,63 @@ body {
   right: 10px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  transition: all 0.5s $transition;
+  transition: $transition;
 }
 
 #button4 .bar.three.animate:after {
   transform-origin: left;
   transform: rotate(-45deg) translateX(18px) translateY(-17px);
-  transition: all 0.5s $transition;
+  transition: $transition;
+}
+
+/* button 5 */
+#button5 {
+  @include button($gradient-color5);
+  transition: 0.2s $timing-fonction;
+  &:hover .bar.one {
+    left: 15px;
+    transition: 0.2s $timing-fonction;
+  }
+}
+
+#button5 .bar.one {
+  @include bar($bar-width);
+  top: 55px;
+  left: 10px;
+  transition: left 0.2s $timing-fonction, opacity 0.2s $timing-fonction;
+  &.animate {
+    opacity: 0;
+    left: 120px;
+    transition: left 0.2s $timing-fonction, opacity 0.2s $timing-fonction;
+  }
+}
+
+#button5 .bar.two {
+  @include bar($bar-width);
+  top: 30px;
+  left: 10px;
+  transition: all 0.2s ease;
+}
+
+#button5 .bar.two.animate {
+  transform-origin: left;
+  top: 20px;
+  left: 25px;
+  transform: rotate(45deg);
+  transition: all 0.2s ease;
+}
+
+#button5 .bar.three {
+  @include bar($bar-width);
+  bottom: 30px;
+  left: 10px;
+  transition: all 0.2s 0.2s ease;
+}
+
+#button5 .bar.three.animate {
+  transform-origin: left;
+  bottom: 20px;
+  left: 25px;
+  transform: rotate(-45deg);
+  transition: all 0.2s 0.2s ease;
 }
